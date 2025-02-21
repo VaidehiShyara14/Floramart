@@ -1,0 +1,31 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+    <main>
+        <div class="form-container">
+            <h1>Login to FloraMart</h1>
+
+            <form action="{{ url_for('login') }}" method="post">
+                <label for="role">Login As:</label>
+                <select id="role" name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Seller</option>
+                </select>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+                <button type="submit" id="loginButton" class="btn btn-login">Login</button>
+            </form>
+
+            <div class="links">
+                <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+                <p><a href="{{ url_for('HomePage') }}">Back to Home</a></p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

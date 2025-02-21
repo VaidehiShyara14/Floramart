@@ -1,0 +1,18 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div id ="maincomponent">
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Plants & Flowers</h1>
+                <p>Choose among a wide variety of plants and flowers</p>
+                <a href="{{ url_for('signup') }}" class="btn btn-buy">SHOP NOW</a>
+            </div>
+            <img src="{{ url_for('static', filename='images/plant1.png') }}" alt="Featured Plant" class="hero-image">
+        </section>
+    </main>
+</div>
+{% endblock %}
+

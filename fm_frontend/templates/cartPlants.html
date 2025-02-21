@@ -1,0 +1,11 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<h1>Your Cart</h1>
+<div class="cart-container">
+    <div class="cart-summary">
+        <p><span class="currency" id="checkout_total">Total: </span><span id="cart-subtotal">0.00</span></p>
+    </div>
+</div>
+{% endblock %}

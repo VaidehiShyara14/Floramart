@@ -1,0 +1,122 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div class="checkout-container">
+    <form action="/order_details" method="POST" class="checkout-form" id="checkoutForm">
+    
+        <div class="section">
+            <h2>Contact</h2>
+            <input type="email" id="email" placeholder="Email or mobile phone number" required>
+            <label>
+                <input type="checkbox" id="newsOffers"> Email me with news and offers
+            </label>
+        </div>
+
+        <div class="section">
+            <h2>Delivery</h2>
+            <div class="two-columns">
+                <input type="text" id="first_name" placeholder="First name" required>
+                <input type="text" id="last_name" placeholder="Last name" required>
+            </div>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="apartmentDetails" placeholder="Apartment, suite, etc. (optional)">
+            <div class="two-columns">
+                <input type="text" id="city" placeholder="City" required>
+                <input type="text" id="state" placeholder="State" required>
+            </div>
+            <input type="text" id="pin_code" placeholder="PIN code" required>
+            <input type="text" id="phone" placeholder="Phone number" required>
+            <label>
+                <input type="checkbox"> Save this information for next time
+            </label>
+        </div>
+
+        <div class="section">
+            <h2>Shipping Method</h2>
+            <p>Enter your shipping address to view available methods.</p>
+        
+            <div class="shipping-options">
+                <label>
+                    <input type="radio" name="shipping_method" value="Standard">
+                    <strong>Standard Shipping</strong> - ₹50 (4-7 days)
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="shipping_method" value="Express">
+                    <strong>Express Delivery</strong> - ₹100 (1-2 days)
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="shipping_method" value="Free">
+                    <strong>Free Shipping</strong> (for orders above ₹1000) - 5-8 days
+                </label>
+            </div>
+        
+            <p><small>📦 Tracking will be available once your order is shipped.</small></p>
+        </div>
+
+        <div class="section">
+            <h2>Payment</h2>
+            <p>All transactions are secure and encrypted.</p>
+            
+            <div class="payment-methods">
+                <label>
+                    <input type="radio" name="payment_method" value="Cash on Delivery"> Cash on Delivery (COD)
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="payment_method" value="Bank Transfer"> Bank Transfer
+                </label>
+            </div>
+        </div>
+        
+        <div class="section billing-address">
+            <h3>Billing Address</h3>
+            <label>
+                <input type="radio" name="billing_address" value="same" checked> Same as shipping address
+            </label>
+            <label>
+                <input type="radio" name="billing_address" value="different"> Use a different billing address
+            </label>
+        </div>
+
+        <button class="payNow" id="BuyNow_Btn" type="submit">Pay Now</button>
+    </form>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="product">
+            <p>Product Price: <span class="item-total" id="itemtotal" data-id="${row.id}"></span></p>
+        </div>
+        <div class="subtotal">
+            <p>Subtotal: <span>0.00</span></p>
+        </div>
+        <div class="shipping">
+            <p>Shipping: <span>0.00</span></p>
+        </div>
+
+        <div id="checkout-summary-container" class="d-none"></div>
+        <div id="final-price-display">Total: 0.00</div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let form = document.getElementById("checkoutForm");
+        let button = document.getElementById("BuyNow_Btn");
+    
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            let confirmation = confirm("Thank you for your order! Your order has been confirmed.");
+    
+            if (confirmation) {
+                form.submit(); // Submit the form if user clicks "OK"
+            }
+        });
+    });
+    </script>
+
+{% endblock %}
