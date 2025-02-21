@@ -1,0 +1,48 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div class="uploadplants">
+  <h2>Upload Plant Image</h2>
+  <p class="description">
+    Use this form to upload plant images along with their name, type, description, and price details.
+  </p>
+  <form action="/upload_plant" id="upload_plant" method="POST" enctype="multipart/form-data" class="upload-form">
+    <label for="plantName">Plant Name:</label>
+    <input type="text" id="plantName" name="plant_name" placeholder="Enter plant name" required />
+
+    <label for="productType">Product Type:</label>
+    <select id="productType" name="product_type" required>
+      <option value="" disabled selected>Select product type</option>
+      <option value="plant_type">plantType</option>
+      <option value="fertilizer">Fertilizer</option>
+      <option value="seeds">Seeds</option> 
+    </select>
+
+
+    <label for="plantType">Plant Type:</label>
+    <select id="plantType" name="plant_type" required>
+      <option value="" disabled selected>Select plant type</option>
+      <option value="indoor">Indoor</option>
+      <option value="outdoor">Outdoor</option>
+      <option value="herbs">Herbs</option>
+      <option value="flowering">Flowering</option>
+    </select>
+
+    <label for="plantDescription">Plant Description:</label>
+    <textarea id="plantDescription" name="plant_description" placeholder="Enter a short description" rows="4" required></textarea>
+
+    <label for="plantPrice">Plant Price (₹):</label>
+    <input type="number" id="plantPrice" name="plant_price" placeholder="Enter price" min="0" required />
+
+    <label for="plantImage">Plant Image:</label>
+    <input type="file" id="plantImage" name="plant_image" accept="image/*" required />
+
+    <button type="submit" id="uploadbutton" class="upload-btn">Upload Plant</button>
+  </form>
+
+  <div class="links">
+    <p><a href="{{ url_for('HomePage') }}">Back to Home</a></p>
+  </div>
+</div>
+{% endblock %}

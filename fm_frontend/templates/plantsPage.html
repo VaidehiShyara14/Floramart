@@ -1,0 +1,33 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<main>
+    <section class="filters">
+        <form action="{{ url_for('plants') }}" method="post">
+        <h2>Filters</h2>
+        <div class="filter-options">
+            <div class="filter-group">
+                <label for="plant-type">Plant Type:</label>
+                <select id="plant-type" name="selectPlantType">
+                    <option value="">All</option>
+                    <option value="indoor">Indoor</option>
+                    <option value="outdoor">Outdoor</option>
+                    <option value="flowering">Flowering</option>
+                    <option value="herbs">Herbs</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="fertilizer-and-seeds">Fertilizer and Seeds:</label>
+                <select id="fertilizer-and-seeds" name="selectFertilizerandSeeds" >
+                    <option value="">All</option>
+                    <option value="fertilizer">Fertilizer</option>
+                    <option value="seeds">Seeds</option>
+                </select>
+            </div>    
+        </form>
+</main>
+<div id = "imageContainer"></div>
+
+{% endblock %}

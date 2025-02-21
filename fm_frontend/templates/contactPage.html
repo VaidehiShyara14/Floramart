@@ -1,0 +1,50 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div class="contact-container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, suggestions, or need assistance, we are here to help!</p>
+    <div class="contact-info">
+        <div class="info-section">
+            <h3>Our Address</h3>
+            <p>Floramart HQ</p>
+            <p>123 Greenway Boulevard</p>
+            <p>Gardentown, FL 12345</p>
+        </div>
+        <div class="info-section">
+            <h3>Call Us</h3>
+            <p>Customer Support: +1 (123) 456-7890</p>
+            <p>Available: Mon - Sat | 9:00 AM - 6:00 PM</p>
+        </div>
+        <div class="info-section">
+            <h3>Email</h3>
+            <p><a href="mailto:support@floramart.com">support@floramart.com</a></p>
+        </div>
+    </div>
+    <div class="contact-form-container">
+        <h2>Send Us a Message</h2>
+        <form action="/submit_contact_form" method="POST" class="contact-form" id="contactForm">
+            <div class="form-field">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required>
+            </div>
+            <div class="form-field">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div id="response-message" style="color: green; margin-top: 20px; display: none;">
+          Thank you for contacting us! Your message has been received.
+      </div>      
+        <div class="links">
+          <p><a href="{{ url_for('HomePage') }}"></a></p>
+      </div>
+    </div>
+</div>
+{% endblock %}

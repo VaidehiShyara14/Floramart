@@ -1,0 +1,41 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>My Orders</h2>
+    
+    {% if orders %}
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.product_name }}</td>
+                    <td>{{ order.quantity }}</td>
+                                      <td>₹{{ order.total_price }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="no-orders">
+            <p>No orders found!</p>
+            <a href="{{ url_for('plants') }}" class="btn btn-primary">Start Shopping</a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

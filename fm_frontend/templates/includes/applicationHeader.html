@@ -1,0 +1,38 @@
+<div class="headerrow">
+    <div class="branding">
+        <div class="logo"></div>
+        <div class="webName">Floramart</div>
+    </div>
+
+    <div class="menu">
+        <a href="{{ url_for('HomePage') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('plants') }}" class="nav-link">Plants</a>
+        <a href="{{ url_for('plantcaretipsPage') }}" class="nav-link">Plant Care Tips</a>
+        <a href="{{ url_for('aboutPage') }}" class="nav-link">About</a>
+        <a href="{{ url_for('contactPage') }}" class="nav-link">Contact</a>
+    </div>
+
+    <div class="auth-buttons">
+        {% if not user_login %}
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+        {% else %}
+            <div class="cart-icon">
+                <a href="{{ url_for('cartPlants') }}" id="carticon" class="cart-icon">🛒</a>
+                <span class="cart-count">0</span>
+            </div>
+
+            <div class="user-dropdown">
+                <button class="dropdown-btn">👤▼</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('user_profile') }}">Profile</a>
+                    <a href="{{ url_for('orders') }}">Orders</a>
+                    {% if user_role.strip() == "admin" %}
+                        <a href="{{ url_for('uploadplants') }}">Upload Plants</a>
+                    {% endif %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

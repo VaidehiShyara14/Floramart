@@ -1,0 +1,36 @@
+{% extends 'Header.html' %}
+{% include 'includes/applicationHeader.html' %}
+
+{% block content %}
+<div class="plant-care-tips">
+  <h1 class="heading">Plant Care Tips</h1>
+  <p class="intro-text">Welcome to FloraMart's plant care guide! Here are some essential tips for keeping your plants healthy and thriving.</p>
+
+  <div class="tips-container">
+    <div class="tip">
+      <img src="/static/images/watering-tips.png" alt="Watering Tips">
+      <h3>Watering</h3>
+      <p>Ensure your plants are watered regularly but avoid overwatering. Most plants prefer their soil to be slightly dry before re-watering.</p>
+    </div>
+    <div class="tip">
+      <img src="/static/images/sunlight-tips.png" alt="Sunlight Tips">
+      <h3>Sunlight</h3>
+      <p>Place your plants in spots with proper lighting. While some plants thrive in direct sunlight, others prefer shaded areas.</p>
+    </div>
+    <div class="tip">
+      <img src="/static/images/fertilizer-tips.png" alt="Fertilizer Tips">
+      <h3>Fertilizing</h3>
+      <p>Feed your plants with a balanced fertilizer once a month during the growing season for lush growth and vibrant foliage.</p>
+    </div>
+    <div class="tip">
+      <img src="/static/images/seasonal-care.png" alt="Seasonal Care">
+      <h3>Seasonal Care</h3>
+      <p>Understand your plant's needs during different seasons. Reduce watering in winter, and be prepared for pruning in spring.</p>
+    </div>
+    <div class="seasonal-tip">
+      <h2>🌱 Seasonal Care Tips</h2>
+      <p id="seasonal-tip">Loading...</p>
+    </div> 
+  </div>
+</div>
+{% endblock %}
