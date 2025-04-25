@@ -81,20 +81,11 @@
             </label>
         </div>
 
-        <button class="payNow" id="BuyNow_Btn" type="submit">Pay Now</button>
+        <button class="payNow" id="BuyNowBtn" type="submit">Submit Confirm Order</button>
     </form>
 
     <div class="order-summary">
         <h2>Order Summary</h2>
-        <div class="product">
-            <p>Product Price: <span class="item-total" id="itemtotal" data-id="${row.id}"></span></p>
-        </div>
-        <div class="subtotal">
-            <p>Subtotal: <span>0.00</span></p>
-        </div>
-        <div class="shipping">
-            <p>Shipping: <span>0.00</span></p>
-        </div>
 
         <div id="checkout-summary-container" class="d-none"></div>
         <div id="final-price-display">Total: 0.00</div>
@@ -103,17 +94,14 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let form = document.getElementById("checkoutForm");
-        let button = document.getElementById("BuyNow_Btn");
+    document.addEventListener("DOMContentLoaded", function () {
+        let button = document.getElementById("BuyNowBtn");
     
-        button.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent default form submission
-    
+        button.addEventListener("click", function () {
             let confirmation = confirm("Thank you for your order! Your order has been confirmed.");
-    
+            
             if (confirmation) {
-                form.submit(); // Submit the form if user clicks "OK"
+                window.location.href = "{{ url_for('plants') }}";
             }
         });
     });

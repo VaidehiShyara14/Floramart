@@ -145,6 +145,7 @@ def orders():
     user_role = session.get("role")
     return render_template('ordersPage.html', email=user_email, user_role=user_role)
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -182,7 +183,7 @@ def get_api_function(url):
     return response
 
 def get_service_url():
-    return 'http://localhost:50000'
+    return 'http://localhost:8000'
 
 def post_api_function(url, data):
     response = ''
@@ -312,15 +313,42 @@ def get_remove_cart_item():
     response = post_api_function(url, request_data)
     return json.dumps(response.json())
 
-@app.route('/submit_order_details', methods=['POST'])
-def submit_order_details():
-    url = get_service_url() + '/get_submit_order_details_data'
-    request_data = request.json
-    print("Data received at order_details endpoint:", request_data)  # Debug Log
-    print(type(request_data['email_or_phone']))
-    response = post_api_function(url,request_data)
-    print("Response from backend service:", response.json())  
-    return json.dumps(response.json())
+# @app.route('/submit_order_details', methods=['POST'])
+# def submit_order_details():
+#     url = get_service_url() + '/get_submit_order_details_data'
+#     request_data = request.json
+#     print("Data received at order_details endpoint:", request_data)  
+#     print(type(request_data['email_or_phone']))
+    
+#     response = post_api_function(url, request_data)
+#     print("Response from backend service:", response.json())
+
+    return jsonify(response.json())  
 
 if __name__ == '__main__':
     app.run(debug=True, port=1447)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
