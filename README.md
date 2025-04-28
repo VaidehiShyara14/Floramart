@@ -2,13 +2,29 @@
 
 FloraMart is an **e-commerce platform** for buying plants online. It provides users with a seamless shopping experience, plant care tips, and secure payment options.
 
-## 🚀 Features
-- **Search & Filter**: Find plants easily using advanced search and filters.
-- **Cart & Checkout**: Add plants to the cart and complete secure transactions.
-- **Plant Care Tips**: Get watering, sunlight, fertilizer, and seasonal guidelines.
-- **Admin Dashboard**: Manage products, orders, and customers.
+## 🧠 Key Highlights
 
-## 🛠️ Tech Stack
-- **Backend**: Python (Flask),Fastapi
-- **Frontend**: HTML, CSS, JavaScript
-- **Database**: PostgreSQL
+- 🔎 Smart Plant Search and Advanced Filters
+- 🌱 Plant Care Tips (watering, sunlight, fertilizer guides)
+- 🛒 Dynamic Cart and Checkout Process
+- 🔒 Secure Admin Dashboard for managing uploads and payments
+- 👥 Role-Based Access Control for Buyers and Sellers
+
+## 🛠 Full Stack Implementation
+
+- **Frontend:** HTML, CSS, JavaScript (with jQuery + AJAX)
+- **Backend:** Python (Flask + FastAPI)
+- **Database:** PostgreSQL
+
+## ⚙ How It Works
+
+- Search and filter plants easily based on your needs
+- Add plants to cart and checkout quickly
+- Admins can manage inventory and payments securely
+
+## 💡 Use Cases
+
+- 🪴 Easy online plant shopping
+- 🛒 Fast checkout and real-time cart updates
+- 🧑‍💻 Admin plant upload and payment management
+
