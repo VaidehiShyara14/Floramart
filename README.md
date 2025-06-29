@@ -28,3 +28,5 @@ FloraMart is an **e-commerce platform** for buying plants online. It provides us
 - 🛒 Fast checkout and real-time cart updates
 - 🧑‍💻 Admin plant upload and payment management
 
+## 🚀 Live Demo : https://floramart-fronted.onrender.com ##
+
